@@ -2,17 +2,18 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-COPY ./packages ./packages
+COPY . .
+# COPY ./packages ./packages
 
-COPY ./package.json ./package.json
-COPY ./pnpm-lock.yaml ./pnpm-lock.yaml
-COPY ./pnpm-workspace.yaml ./pnpm-workspace.yaml
-COPY ./turbo.json ./turbo.json
+# COPY ./package.json ./package.json
+# COPY ./pnpm-lock.yaml ./pnpm-lock.yaml
+# COPY ./pnpm-workspace.yaml ./pnpm-workspace.yaml
+# COPY ./turbo.json ./turbo.json
 
 RUN npm install -g pnpm
 RUN pnpm install
 
-COPY ./apps/be ./apps/be
+# COPY ./apps/be ./apps/be
 
 RUN pnpm run build:be
 RUN pnpm run db:generate
