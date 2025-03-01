@@ -33,4 +33,5 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          script: docker stop user_frontend && docker run --name user_frontend -d -p 3000:3000 100xdevs/week27-frontend:${{ github.sha }}
+          script: |
+            docker stop user_frontend && docker run --name user_frontend -d -p 3000:3000 100xdevs/week27-frontend:${{ github.sha }}
