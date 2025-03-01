@@ -24,3 +24,11 @@ jobs:
           file: ./docker/Dockerfile.backend
           push: true
           tags: devanshbhavsar/week27-backend:${{ github.sha }}
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.2.1
+        with:
+          host: 34.47.238.131
+          username: linuxserver.io
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: whoami
