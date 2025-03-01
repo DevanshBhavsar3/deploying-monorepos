@@ -28,7 +28,8 @@ jobs:
         uses: appleboy/ssh-action@v1.2.1
         with:
           host: 34.47.238.131
-          username: linuxserver.io
+          username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          script: ls
+          script: |
+            docker stop user_websocket && docker run --name user_websocket -d -p 8080:8080 100xdevs/week27-websocket:${{ github.sha }}

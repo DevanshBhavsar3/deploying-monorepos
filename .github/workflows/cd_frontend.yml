@@ -30,7 +30,7 @@ jobs:
         uses: appleboy/ssh-action@v1.2.1
         with:
           host: 34.47.238.131
-          username: linuxserver.io
+          username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          script: whoami
+          script: docker stop user_frontend && docker run --name user_frontend -d -p 3000:3000 100xdevs/week27-frontend:${{ github.sha }}
