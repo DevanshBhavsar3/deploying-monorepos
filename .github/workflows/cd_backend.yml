@@ -23,4 +23,4 @@ jobs:
           context: .
           file: ./docker/Dockerfile.backend
           push: true
-          tags: devanshbhavsar/week27:${{ github.sha }}
+          tags: devanshbhavsar/week27-backend:${{ github.sha }}
